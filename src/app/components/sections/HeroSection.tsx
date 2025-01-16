@@ -56,11 +56,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isLogin }) => {
       {isLogin ? (
         <div className=''></div>
       ) : (
-        <div className="w-full h-auto p-2.5 bg-[#f8fbff] flex flex-col md:flex-row justify-center items-center gap-[21px]">
+        <div className="w-full h-auto p-2.5 flex flex-col md:flex-row justify-center items-center gap-[21px]">
           <div className="text-black text-base font-normal font-['Plus Jakarta Sans'] text-center md:text-left">
             Berlangganan sekarang juga dan pilih video apapun dan pelajari kapanpun.
           </div>
-          <div className="h-[50px] p-[15px] rounded-[10px] flex justify-center items-center gap-2.5 mt-4 md:mt-0">
+          <div className="h-[50px] p-[15px] bg-[#3d81db] rounded-[10px] flex justify-center items-center gap-2.5 mt-4 md:mt-0">
             <button className="text-center text-white text-base font-semibold font-['Plus Jakarta Sans']">
               Bayar 99rb, akses semua course
             </button>
