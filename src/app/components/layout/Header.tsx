@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 p-4">
           <div className="absolute right-0 top-0 h-full w-[269px] bg-white shadow-lg p-4 transform transition-transform duration-300 ease-in-out">
             {/* Close Button */}
             <button onClick={toggleMenu} className="text-gray-500 focus:outline-none mb-4">

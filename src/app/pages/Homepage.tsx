@@ -16,7 +16,7 @@ const Homepage = () => {
         setIsLogin(!isLogin);
     };
     return (
-    <div className='w-full p-4 item-center justify-between'>
+    <div className='w-full item-center justify-between'>
         
         <Header isLogin={isLogin} handleLogin={handleLogin} />
         <HeroSection isLogin={isLogin}/>
