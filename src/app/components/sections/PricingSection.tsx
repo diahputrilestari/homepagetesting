@@ -43,7 +43,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, duration, price, featu
                           <div key={index} className="flex justify-start items-center gap-[5px]">
                               <BsCheck2Circle size="28"/>
                               <div className="text-black text-sm font-normal font-['Plus Jakarta Sans'] leading-[21px]">{feature}</div>
-                              {/* <div className="text-center text-black text-base font-normal leading-normal">{feature}</div> */}
                           </div>
                       ))}
                   </div>
