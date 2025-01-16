@@ -100,21 +100,6 @@ const FeaturesSection: React.FC<FeatureSectionProps> = ({isLogin}) => {
                             <div className={`text-sm font-${button.textColor === 'text-white' ? 'bold' : 'normal'} ${button.textColor} ${button.hoverTextColor}`}>{button.text}</div>
                         </div>
                     ))}
-          {/* <div className="flex-shrink-0 px-5 py-[15px] bg-[#652f8e] rounded-[100px] flex justify-center items-center gap-2.5">
-            <div className="text-white text-sm font-bold font-['Poppins']">Bussiness Development</div>
-          </div>
-          <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
-            <div className="text-[#652f8e] text-sm font-normal font-['Poppins']">Digital Marketing</div>
-          </div>
-          <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
-            <div className="text-[#652f8e] text-sm font-normal font-['Poppins']">Human Resource</div>
-          </div>
-          <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
-            <div className="text-[#652f8e] text-sm font-normal font-['Poppins']">Product Management</div>
-          </div>
-          <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
-            <div className="text-[#652f8e] text-sm font-normal font-['Poppins']">Tax & Accounting</div>
-          </div> */}
         </div>
 
         <div className="overflow-x-auto scrollbar-hide md:mb-16">

@@ -127,10 +127,10 @@ const PricingSection: React.FC = () => {
 
     <section className="py-16 bg-blue-100">
         <div className="container mx-auto px-4 max-w-7xl">
-            <div className="text-black text-4xl font-bold leading-[54px] text-center lg:text-left">
+            <div className="text-center text-black text-xl md:text-4xl font-bold font-['Plus Jakarta Sans'] leading-[30px] md:leading-[54px] text-center lg:text-left">
                 Berlangganan Sekarang, Tingkatkan Potensimu!
             </div>
-            <div className="text-black text-2xl font-normal leading-9 mb-4 text-center lg:text-left">
+            <div className="text-center text-black text-base md:text-2xl font-normal leading-normal md:leading-9 mb-4 lg:text-left">
                 Nikmati Akses Tanpa Batas ke Semua Materi, Hemat Lebih Banyak dengan Langganan Bulanan.
             </div>
             <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-6 space-y-6 lg:space-y-0">

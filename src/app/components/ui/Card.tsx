@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, subtitle, image, showProgress }) => {
   return (
     <div className="min-w-[278px] text-white rounded-lg shadow-md mt-2 mb-6">
-      <Image src={image} alt="thumbnails" className='w-[270px] h-48' />
+      <Image src={image} alt="thumbnails" className='w-full h-48 rounded-tl-lg rounded-tr-lg' />
       <div className="w-full h-[114px] px-3 py-4 flex-col justify-start items-start gap-2 inline-flex">
         {showProgress && ( // Conditionally render the progress bar
           <div className="self-stretch justify-start items-center gap-2 inline-flex w-full">

@@ -16,7 +16,7 @@ const BenefitsSection = () => {
         <div className="w-full flex flex-col justify-start items-start gap-12">
           <div className="w-full flex flex-col lg:flex-row justify-start items-start gap-8">
             <Image className="w-full lg:w-[400px] h-auto rounded-[10px]" src={imgbc} alt="image bootcamp" />
-            <div className="flex flex-col justify-start items-start gap-2.5 px-4 lg:px-[100px] py-5">
+            <div className="flex flex-col justify-start md:items-start gap-2.5 px-4 lg:px-[100px] py-5">
               <div className="md:text-left text-center text-black md:text-2xl text-lg font-bold font-['Plus Jakarta Sans'] md:leading-9 leading-[27px]">
                 Program Bootcamp Langsung Kerja
               </div>
