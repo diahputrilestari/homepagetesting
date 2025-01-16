@@ -1,3 +1,4 @@
+// import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        Plus_Jakarta_Sans: ["Plus Jakarta Sans", "sans-serif"],
       },
     },
   },

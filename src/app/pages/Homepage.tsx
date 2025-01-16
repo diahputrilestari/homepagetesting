@@ -9,7 +9,7 @@ import BenefitsSection from '../components/sections/BenefitsSection';
 import Footer from '../components/layout/Footer';
 
 
-const Homepage: React.FC = () => {
+const Homepage = () => {
     const [isLogin, setIsLogin] = useState(false);
 
     const handleLogin = () => {

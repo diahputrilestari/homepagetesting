@@ -36,6 +36,15 @@ const FeaturesSection: React.FC<FeatureSectionProps> = ({isLogin}) => {
     { title: "Account Profiling", subtitle: "8 Video + Soal Latihan", image: Thumbnails4 },
   ];
 
+  
+    const buttons = [
+      
+        { text: "Business Development", bgColor: "bg-[#652f8e]", textColor: "text-white", hoverBgColor: "hover:bg-[#4a1f6e]", hoverTextColor: "group-hover:text-white" },
+        { text: "Digital Marketing", bgColor: "bg-white", textColor: "text-[#652f8e]", borderColor: "border-[#652f8e]", hoverBgColor: "hover:bg-[#652f8e]", hoverTextColor: "group-hover:text-white" },
+        { text: "Human Resource", bgColor: "bg-white", textColor: "text-[#652f8e]", borderColor: "border-[#652f8e]", hoverBgColor: "hover:bg-[#652f8e]", hoverTextColor: "group-hover:text-white" },
+        { text: "Product Management", bgColor: "bg-white", textColor: "text-[#652f8e]", borderColor: "border-[#652f8e]", hoverBgColor: "hover:bg-[#652f8e]", hoverTextColor: "group-hover:text-white" },
+        { text: "Tax & Accounting", bgColor: "bg-white", textColor: "text-[#652f8e]", borderColor: "border-[#652f8e]", hoverBgColor: "hover:bg-[#652f8e]", hoverTextColor: "group-hover:text-white" }
+    ];
   return (
     <section className="py-8 container mx-auto px-4 max-w-7xl">
       <div className="container mx-auto">
@@ -80,18 +89,18 @@ const FeaturesSection: React.FC<FeatureSectionProps> = ({isLogin}) => {
         </div>
        </>
       )}
-    
-
-        
-
-        
 
         <div className="text-black text-lg md:text-4xl font-bold font-['Plus Jakarta Sans'] md:leading-[54px] mb-4 md:mb-8">
           Kelas yang paling banyak diminati
         </div>
 
         <div className="flex overflow-x-auto scrollbar-hide gap-4 mb-8">
-          <div className="flex-shrink-0 px-5 py-[15px] bg-[#652f8e] rounded-[100px] flex justify-center items-center gap-2.5">
+        {buttons.map((button, index) => (
+                        <div key={index} className={`group flex-shrink-0 h-[51px] px-5 py-[15px] ${button.bgColor} ${button.borderColor ? `border-2 ${button.borderColor}` : ''} rounded-[100px] flex justify-center items-center gap-2.5 ${button.hoverBgColor}`}>
+                            <div className={`text-sm font-${button.textColor === 'text-white' ? 'bold' : 'normal'} ${button.textColor} ${button.hoverTextColor}`}>{button.text}</div>
+                        </div>
+                    ))}
+          {/* <div className="flex-shrink-0 px-5 py-[15px] bg-[#652f8e] rounded-[100px] flex justify-center items-center gap-2.5">
             <div className="text-white text-sm font-bold font-['Poppins']">Bussiness Development</div>
           </div>
           <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
@@ -105,7 +114,7 @@ const FeaturesSection: React.FC<FeatureSectionProps> = ({isLogin}) => {
           </div>
           <div className="flex-shrink-0 h-[51px] px-5 py-[15px] bg-white rounded-[100px] border-2 border-[#652f8e] flex justify-center items-center gap-2.5">
             <div className="text-[#652f8e] text-sm font-normal font-['Poppins']">Tax & Accounting</div>
-          </div>
+          </div> */}
         </div>
 
         <div className="overflow-x-auto scrollbar-hide md:mb-16">

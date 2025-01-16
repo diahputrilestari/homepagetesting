@@ -4,9 +4,9 @@ import imgbc from '../../assets/images/img-bootcamp.png';
 import imgbc2 from '../../assets/images/img-bootcamp2.png';
 import imgbc3 from '../../assets/images/img-bootcamp3.png';
 
-const BenefitsSection: React.FC = () => {
+const BenefitsSection = () => {
   return (
-    <section className="container mx-auto px-4 max-w-7xl py-8">
+    <section className="container mx-auto px-4 max-w-7xl py-8 bg-white">
       <div className="w-full flex flex-col justify-start items-start md:gap-12">
         <div className="w-full flex flex-col justify-start items-start gap-8">
           <div className="w-full text-black text-lg md:text-4xl font-bold font-['Plus Jakarta Sans'] md:leading-[54px] text-center lg:text-left">
