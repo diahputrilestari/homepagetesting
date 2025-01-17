@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../assets/images/logo.png'; 
-// import { Link } from 'react-router-dom';
+import user from '../../assets/images/user.png';
 
 interface HeaderProps {
   isLogin: boolean;
@@ -11,17 +11,16 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [isLogin, setIsLogin] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // const handleLogin = () => {
-  //   setIsLogin(!isLogin);
-  // };
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
-  // Menu Items
   const menuItems = [
     { name: 'Homepage', href: '#', active: true },
     { name: 'Video Course', href: '#' },
@@ -36,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
         <div className="w-full h-20 bg-white flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <Image src={logo} alt="logo" width={162} height={36} />
+            <Image src={logo} alt="logo" className="w-[134.72px] grow shrink basis-0 md:w-[162px] md:h-9"/>
           </div>
 
           {/* Desktop & Mobile Menu */}
@@ -58,14 +57,11 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
 
           {/* Desktop Action Buttons */}
           {isLogin ? (
-            <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
-                F
-              </div>
+            <div className="w-10 h-[38px] relative flex-col justify-start items-start hidden md:flex">
+                <Image src={user} alt='user' className="w-[33.20px] h-[32.72px] relative"/>
             </div>
           ) : (
           <div className="hidden md:flex items-center gap-3">
-
             <a href=''>
               <button className="w-[95px] h-[37px] px-4 py-[9px] bg-[#652f8e] text-white text-xs font-semibold rounded-lg">
                 Daftar
@@ -106,13 +102,47 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
             {/* Mobile Menu Items */}
             <nav className="flex flex-col space-y-4">
               <div className="flex flex-col space-y-2 mt-4">
-                <button className="h-[37px] px-4 py-[9px] bg-[#652f8e] rounded-lg justify-center items-center gap-2.5 inline-flex">
+              {isLogin ? (
+                <>
+                {/* <div className="flex items-center space-x-2 mb-4">
+              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
+              <span>Faris Ferdian A.</span>
+              <i className="fas fa-chevron-down"></i>
+            </div>  */}
+            <div className="h-12 pl-1 pr-4 py-1 rounded-lg border border-[#c3d4e9] justify-between items-center inline-flex">
+                {/* <div className="relative">
+                    <div className="w-10 h-10 py-px left-0 top-0 absolute justify-center items-center inline-flex overflow-hidden">
+                        <div className="w-10 h-[38px] relative flex-col justify-start items-start flex">
+                            <div className="w-[33.20px] h-[32.72px] relative">
+                            </div>
+                        </div>
+                    </div>
+                    <div className="left-[48px] top-[10.50px] absolute text-[#596780] text-xs font-semibold font-['Plus Jakarta Sans'] leading-tight">Faris Ferdian A.</div>
+                </div>
+                <div className="w-5 h-5 justify-center items-center flex">
+                    <div className="w-5 h-5 relative">
+                    </div>
+                </div> */}
+                <div className="flex items-center space-x-2 mb-4">
+              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
+              <span>Faris Ferdian A.</span>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+            </div>
+                </>
+              ):(
+                <>
+                <button className="h-[37px] px-4 py-[9px] bg-[#652f8e] rounded-lg justify-center items-center gap-2.5 inline-flex" onClick={handleLogin}
+                // onClick={toggleDropdown}
+                >
                   <div className="text-center text-white text-xs font-semibold font-['Plus Jakarta Sans'] leading-tight">Masuk</div>
                 </button>
                 <div className="text-center text-[#596780] text-xs font-normal font-['Plus Jakarta Sans']">atau</div>
                 <button className="h-[37px] px-4 py-[9px] bg-white rounded-lg border border-[#90a3bf] justify-center items-center gap-2.5 inline-flex">
                   <div className="text-center text-[#596780] text-xs font-semibold font-['Plus Jakarta Sans'] leading-tight">Daftar Sekarang</div>
                 </button>
+                </>
+              )}
               </div>
               {menuItems.map((item, index) => (
                 <a
@@ -130,8 +160,44 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
           </div>
         </div>
       )}
+      
+      {/* Dropdown Menu */}
+      {isDropdownOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 p-4">
+          <div className="absolute right-0 top-0 h-full w-[269px] bg-white shadow-lg p-4 transform transition-transform duration-300 ease-in-out">
+            {/* Close Button */}
+            <button onClick={toggleDropdown} className="text-gray-500 focus:outline-none mb-4">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+{/*             
+            <div className="flex items-center space-x-2 mb-4">
+              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
+              <span>Faris Ferdian A.</span>
+              <i className="fas fa-chevron-down"></i>
+            </div> */}
+
+            {/* Dropdown Menu Items */}
+            <nav className="flex flex-col space-y-4">
+              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                <i className="fas fa-user text-purple-700 mr-2"></i>
+                Profil Saya
+              </a>
+              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                <i className="fas fa-history text-purple-700 mr-2"></i>
+                History Pembelian
+              </a>
+              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100 text-red-500">
+                <i className="fas fa-sign-out-alt mr-2"></i>
+                Keluar
+              </a>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
-
 export default Header;
