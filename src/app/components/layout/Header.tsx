@@ -4,6 +4,9 @@ import Image from 'next/image';
 import logo from '../../assets/images/logo.png'; 
 import user from '../../assets/images/user.png';
 import { IoIosArrowDown } from "react-icons/io";
+import userIcon from "../../assets/images/user-icon.svg"
+import billIcon from "../../assets/images/bill-icon.svg"
+import logoutIcon from "../../assets/images/logout-icon.svg"
 
 interface HeaderProps {
   isLogin: boolean;
@@ -110,7 +113,7 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
                 <div className='relative'>
                 <div className="flex items-center space-x-2 " onClick={toggleDropdown}>
                   <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
-                  <span>Faris Ferdian A.</span>
+                  <span className='text-[#080c19]'>Faris Ferdian A.</span>
                   <div className="w-10 h-10 justify-right items-center flex">
                     <div className="w-5 h-5 relative">
                       <IoIosArrowDown/>
@@ -118,17 +121,17 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
                   </div>
                 </div>
                 {isDropdownOpen && (
-                  <div className="absolute top-12 left-0 w-full bg-white shadow-lg rounded-lg p-4 z-10">
-                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
-                      <i className="fas fa-user text-purple-700 mr-2"></i>
+                  <div className="absolute top-12 left-0 w-[230px] bg-white shadow-lg rounded-lg p-4 z-10">
+                    <a href="#" className="flex item-center pr-4 py-2 text-[#080c19] text-xs font-medium font-['Plus Jakarta Sans'] gap-2">
+                      <Image src={userIcon} alt="icon user"/>
                       Profil Saya
                     </a>
-                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
-                      <i className="fas fa-history text-purple-700 mr-2"></i>
+                    <a href="#" className="flex item-center pr-4 py-2 text-[#080c19] text-xs font-medium font-['Plus Jakarta Sans'] gap-2">
+                      <Image src={billIcon} alt="bill user"/>
                       History Pembelian
                     </a>
-                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100 text-red-500">
-                      <i className="fas fa-sign-out-alt mr-2"></i>
+                    <a href="#" className="flex item-center pr-4 py-2 text-xs font-medium font-['Plus Jakarta Sans'] text-red-500 gap-2">
+                      <Image src={logoutIcon} alt="logout user"/>
                       Keluar
                     </a>
                   </div>
