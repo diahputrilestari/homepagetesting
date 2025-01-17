@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../assets/images/logo.png'; 
 import user from '../../assets/images/user.png';
+import { IoIosArrowDown } from "react-icons/io";
 
 interface HeaderProps {
   isLogin: boolean;
@@ -104,31 +105,36 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
               <div className="flex flex-col space-y-2 mt-4">
               {isLogin ? (
                 <>
-                {/* <div className="flex items-center space-x-2 mb-4">
-              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
-              <span>Faris Ferdian A.</span>
-              <i className="fas fa-chevron-down"></i>
-            </div>  */}
             <div className="h-12 pl-1 pr-4 py-1 rounded-lg border border-[#c3d4e9] justify-between items-center inline-flex">
-                {/* <div className="relative">
-                    <div className="w-10 h-10 py-px left-0 top-0 absolute justify-center items-center inline-flex overflow-hidden">
-                        <div className="w-10 h-[38px] relative flex-col justify-start items-start flex">
-                            <div className="w-[33.20px] h-[32.72px] relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div className="left-[48px] top-[10.50px] absolute text-[#596780] text-xs font-semibold font-['Plus Jakarta Sans'] leading-tight">Faris Ferdian A.</div>
-                </div>
-                <div className="w-5 h-5 justify-center items-center flex">
+                
+                <div className='relative'>
+                <div className="flex items-center space-x-2 " onClick={toggleDropdown}>
+                  <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
+                  <span>Faris Ferdian A.</span>
+                  <div className="w-10 h-10 justify-right items-center flex">
                     <div className="w-5 h-5 relative">
+                      <IoIosArrowDown/>
                     </div>
-                </div> */}
-                <div className="flex items-center space-x-2 mb-4">
-              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
-              <span>Faris Ferdian A.</span>
-              <i className="fas fa-chevron-down"></i>
-            </div>
-            </div>
+                  </div>
+                </div>
+                {isDropdownOpen && (
+                  <div className="absolute top-12 left-0 w-full bg-white shadow-lg rounded-lg p-4 z-10">
+                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                      <i className="fas fa-user text-purple-700 mr-2"></i>
+                      Profil Saya
+                    </a>
+                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                      <i className="fas fa-history text-purple-700 mr-2"></i>
+                      History Pembelian
+                    </a>
+                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100 text-red-500">
+                      <i className="fas fa-sign-out-alt mr-2"></i>
+                      Keluar
+                    </a>
+                  </div>
+                )}
+                </div>
+                </div>
                 </>
               ):(
                 <>
@@ -160,44 +166,8 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
           </div>
         </div>
       )}
-      
-      {/* Dropdown Menu */}
-      {isDropdownOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 p-4">
-          <div className="absolute right-0 top-0 h-full w-[269px] bg-white shadow-lg p-4 transform transition-transform duration-300 ease-in-out">
-            {/* Close Button */}
-            <button onClick={toggleDropdown} className="text-gray-500 focus:outline-none mb-4">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-{/*             
-            <div className="flex items-center space-x-2 mb-4">
-              <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
-              <span>Faris Ferdian A.</span>
-              <i className="fas fa-chevron-down"></i>
-            </div> */}
-
-            {/* Dropdown Menu Items */}
-            <nav className="flex flex-col space-y-4">
-              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
-                <i className="fas fa-user text-purple-700 mr-2"></i>
-                Profil Saya
-              </a>
-              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100">
-                <i className="fas fa-history text-purple-700 mr-2"></i>
-                History Pembelian
-              </a>
-              <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100 text-red-500">
-                <i className="fas fa-sign-out-alt mr-2"></i>
-                Keluar
-              </a>
-            </nav>
-          </div>
-        </div>
-      )}
     </header>
   );
 };
+
 export default Header;
