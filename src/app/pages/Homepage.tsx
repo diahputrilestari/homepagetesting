@@ -22,7 +22,7 @@ const Homepage = () => {
         <HeroSection isLogin={isLogin}/>
         <FeaturesSection isLogin={isLogin}/>
         <BenefitsSection/>
-        <PricingSection/>
+        <PricingSection isLogin={isLogin}/>
         <Footer/>
     </div>
   );

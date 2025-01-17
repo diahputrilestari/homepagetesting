@@ -10,9 +10,14 @@ interface PricingCardProps {
   bgColor: string;
   textColor: string;
   highlight: boolean;
+  link: string; // Add a link prop to specify the URL
 }
 
-const PricingCard: React.FC<PricingCardProps> = ({ title, duration, price, features, bgColor, textColor, highlight }) => (
+interface PricingSectionProps {
+    isLogin: boolean;
+  }
+
+const PricingCard: React.FC<PricingCardProps> = ({ title, duration, price, features, bgColor, textColor, highlight, link }) => (
   <div className={`w-full lg:w-1/3 flex flex-col items-center ${highlight ? 'relative' : ''}`}>
       {highlight && <div className="w-full max-w-sm h-[583px] p-2.5 bg-[#ffcc00] rounded-[10px] flex-col justify-center items-start inline-flex">
           <div className="w-full h-[563px] rounded-[20px] flex-col justify-start items-start flex overflow-hidden">
@@ -46,11 +51,16 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, duration, price, featu
                           </div>
                       ))}
                   </div>
-                  <div className="w-full h-[100px] px-[30px] py-5 flex-col justify-start items-start gap-2.5 flex">
-                      <div className="w-full h-[60px] px-3 py-2 rounded-xl border border-[#3d81db] justify-center items-center gap-2.5 inline-flex">
-                          <div className="text-center text-[#3d81db] text-base font-semibold">Coba Sekarang</div>
-                      </div>
-                  </div>
+                    <div className="w-full h-[100px] px-[30px] py-5 flex-col justify-start items-start gap-2.5 flex">
+                        <a 
+                            href={link} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group w-full h-[60px] px-3 py-2 rounded-xl border border-[#3d81db] justify-center items-center gap-2.5 inline-flex hover:bg-[#3d81db] transition duration-300"
+                        >
+                            <div className="text-center text-[#3d81db] text-base font-semibold group-hover:text-[#ffff]">Coba Sekarang</div>
+                        </a>
+                    </div>
               </div>
           </div>
       </div>}
@@ -72,16 +82,21 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, duration, price, featu
                   ))}
               </div>
               <div className="w-full h-[100px] px-[30px] py-5 flex-col justify-start items-start gap-2.5 flex">
-                  <div className="w-full h-[60px] px-3 py-2 rounded-xl border border-[#3d81db] justify-center items-center gap-2.5 inline-flex hover:bg-shadow-700">
-                      <div className="text-center text-[#3d81db] text-base font-semibold">Coba Sekarang</div>
-                  </div>
-              </div>
+                    <a 
+                        href={link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group w-full h-[60px] px-3 py-2 rounded-xl border border-[#3d81db] justify-center items-center gap-2.5 inline-flex hover:bg-[#3d81db] transition duration-300"
+                    >
+                        <div className="text-center text-[#3d81db] text-base font-semibold group-hover:text-[#ffff]">Coba Sekarang</div>
+                    </a>
+                </div>
           </div>
       </div>}
   </div>
 );
 
-const PricingSection: React.FC = () => {
+const PricingSection: React.FC<PricingSectionProps> = ({ isLogin }) => {
   const plans = [
     {
         title: "Paket Video E-Learning",
@@ -94,7 +109,8 @@ const PricingSection: React.FC = () => {
         ],
         bgColor: "bg-[#90a3bf]",
         textColor: "text-white",
-        highlight: false
+        highlight: false,
+        link: "#"
     },
     {
         title: "Paket Video E-Learning",
@@ -107,7 +123,8 @@ const PricingSection: React.FC = () => {
         ],
         bgColor: "bg-[#652f8e]",
         textColor: "text-white",
-        highlight: true
+        highlight: true,
+        link: "#"
     },
     {
         title: "Paket Video E-Learning",
@@ -120,26 +137,33 @@ const PricingSection: React.FC = () => {
         ],
         bgColor: "bg-[#ffc73a]",
         textColor: "text-[#2e1541]",
-        highlight: false
+        highlight: false,
+        link: "#"
     }
 ];
   return (
-
-    <section className="py-16 bg-blue-100">
+    <>
+    {isLogin ? (
+      <></>
+    ) : (
+      <section id="pricing" className="py-16 bg-blue-100">
         <div className="container mx-auto px-4 max-w-7xl">
-            <div className="text-center text-black text-xl md:text-4xl font-bold font-['Plus Jakarta Sans'] leading-[30px] md:leading-[54px] text-center lg:text-left">
-                Berlangganan Sekarang, Tingkatkan Potensimu!
-            </div>
-            <div className="text-center text-black text-base md:text-2xl font-normal leading-normal md:leading-9 mb-4 lg:text-left">
-                Nikmati Akses Tanpa Batas ke Semua Materi, Hemat Lebih Banyak dengan Langganan Bulanan.
-            </div>
-            <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-6 space-y-6 lg:space-y-0">
-                {plans.map((plan, index) => (
-                    <PricingCard key={index} {...plan} />
-                ))}
-            </div>
+          <div className="text-center text-black text-xl md:text-4xl font-bold font-['Plus Jakarta Sans'] leading-[30px] md:leading-[54px] text-center lg:text-left">
+            Berlangganan Sekarang, Tingkatkan Potensimu!
+          </div>
+          <div className="text-center text-black text-base md:text-2xl font-normal leading-normal md:leading-9 mb-4 lg:text-left">
+            Nikmati Akses Tanpa Batas ke Semua Materi, Hemat Lebih Banyak dengan Langganan Bulanan.
+          </div>
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-6 space-y-6 lg:space-y-0">
+            {plans.map((plan, index) => (
+              <PricingCard key={index} {...plan} />
+            ))}
+          </div>
         </div>
-    </section>
+      </section>
+    )}
+  </>
+    
   );
 };
 

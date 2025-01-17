@@ -71,7 +71,7 @@ const FeaturesSection: React.FC<FeatureSectionProps> = ({isLogin}) => {
         </>
       ) : (
        <>
-        <div className="text-black text-lg md:text-4xl font-bold font-['Plus Jakarta Sans'] md:leading-[54px] md:mb-6 ">
+        <div className="text-black text-xl md:text-4xl font-bold font-['Plus Jakarta Sans'] md:leading-[54px] leading-[30px]">
           Akses Video Gratis, Mulai Belajar Hari Ini
         </div>
 

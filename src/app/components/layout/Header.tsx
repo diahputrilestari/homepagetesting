@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../assets/images/logo.png'; 
+// import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   isLogin: boolean;
@@ -64,9 +65,12 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
             </div>
           ) : (
           <div className="hidden md:flex items-center gap-3">
-            <button className="w-[95px] h-[37px] px-4 py-[9px] bg-[#652f8e] text-white text-xs font-semibold rounded-lg">
-              Daftar
-            </button>
+
+            <a href=''>
+              <button className="w-[95px] h-[37px] px-4 py-[9px] bg-[#652f8e] text-white text-xs font-semibold rounded-lg">
+                Daftar
+              </button>
+            </a>
             <button className="w-[95px] h-[37px] px-4 py-[9px] border border-[#90a3bf] text-[#596780] text-xs font-semibold rounded-lg"
              onClick={handleLogin}
             >

@@ -60,15 +60,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isLogin }) => {
           <div className="text-black text-base font-normal font-['Plus Jakarta Sans'] text-center md:text-left">
             Berlangganan sekarang juga dan pilih video apapun dan pelajari kapanpun.
           </div>
-          <div className="h-[50px] p-[15px] bg-[#3d81db] rounded-[10px] flex justify-center items-center gap-2.5 mt-4 md:mt-0">
+          <a href="#pricing" className="h-[50px] p-[15px] bg-[#3d81db] rounded-[10px] flex justify-center items-center gap-2.5 md:mt-0">
             <button className="text-center text-white text-base font-semibold font-['Plus Jakarta Sans']">
               Bayar 99rb, akses semua course
             </button>
-          </div>
+          </a>
         </div>
         )}
         
-        <div className="relative w-full h-[300px] md:h-[490px] overflow-hidden mt-8">
+        <div className="relative w-full h-[300px] md:h-[490px] overflow-hidden">
           {/* Slide */}
           <div
             className="flex transition-transform duration-700 ease-in-out"
