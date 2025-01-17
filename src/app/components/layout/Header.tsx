@@ -110,18 +110,21 @@ const Header: React.FC<HeaderProps> = ({ isLogin, handleLogin }) => {
                 <>
             <div className="h-12 pl-1 pr-4 py-1 rounded-lg border border-[#c3d4e9] justify-between items-center inline-flex">
                 
-                <div className='relative'>
-                <div className="flex items-center space-x-2 " onClick={toggleDropdown}>
+                <div className='relative w-full'>
+                <div className="flex items-center space-x-2 w-full" onClick={toggleDropdown}>
                   <Image src={user} alt="User avatar" className="w-10 h-10 rounded-full" />
-                  <span className='text-[#080c19]'>Faris Ferdian A.</span>
-                  <div className="w-10 h-10 justify-right items-center flex">
+                  <span className='text-[#080c19] text-xs flex-grow ml-2'>Faris Ferdian A.</span>
+                  {/* <div className="w-10 h-10 justify-right items-center flex">
                     <div className="w-5 h-5 relative">
                       <IoIosArrowDown/>
                     </div>
+                  </div> */}
+                   <div className="ml-auto">
+                    <IoIosArrowDown/>
                   </div>
                 </div>
                 {isDropdownOpen && (
-                  <div className="absolute top-12 left-0 w-[230px] bg-white shadow-lg rounded-lg p-4 z-10">
+                  <div className="absolute top-12 left-0 w-[230px] bg-white shadow-[0px_16px_32px_-8px_rgba(12,12,13,0.40)] border border-[#c3d4e9] rounded-lg p-4 z-10">
                     <a href="#" className="flex item-center pr-4 py-2 text-[#080c19] text-xs font-medium font-['Plus Jakarta Sans'] gap-2">
                       <Image src={userIcon} alt="icon user"/>
                       Profil Saya
